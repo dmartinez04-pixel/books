@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"errors"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 type SqliteBookRepository struct {
@@ -13,7 +13,7 @@ type SqliteBookRepository struct {
 }
 
 func NewSqliteBookRepository(dbPath string) (*SqliteBookRepository, error) {
-	db, err := sql.Open("sqlite3", dbPath)
+	db, err := sql.Open("sqlite", dbPath)
 	if err != nil {
 		return nil, err
 	}
